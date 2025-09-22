@@ -1,11 +1,14 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
     public static void main(String[] args) {
-        System.out.print("Hello and welcome!");
+        System.out.println("Hello and welcome!");
+
+        Calculator calculator = new Calculator();
+        int result = calculator.add(1, 3);
+        System.out.println("Result=" + result);
+
         // Create instance 1
         Main o1 = new Main();
         o1.doNothing();
