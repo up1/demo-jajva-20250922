@@ -19,7 +19,7 @@ public class DemoApp {
         System.out.println("All orders= " + count);
 
         // Start workshop !!
-        processing.getTop3TopSpenders(orders);
+       
 
 
     }
