@@ -19,7 +19,8 @@ public class BookStore {
         }
 
         for (Book b : books) {
-            System.out.println(b.toString());
+            System.out.println(b.getId());
+            System.out.println(b.getName());
         }
 
     }
@@ -29,9 +30,9 @@ public class BookStore {
     public Optional<List<Book>> inquiryAllBook() {
         // Dummy books
         List<Book> books = new ArrayList();
-        books.add(new Book());
-        books.add(new Book());
-        books.add(new Book());
+        books.add(new Book(1, "Book 01", 100));
+        books.add(new Book(2, "Book 02", 100));
+        books.add(new Book(3, "Book 03", 100));
 
         return Optional.of(books);
     }
