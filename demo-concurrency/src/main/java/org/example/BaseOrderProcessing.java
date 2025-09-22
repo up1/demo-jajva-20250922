@@ -15,7 +15,7 @@ public abstract class BaseOrderProcessing {
     }
 
     public  BigDecimal computeTax(BigDecimal base) {
-        // simulate some CPU work
+        // Simulate some CPU work
         double x = base.doubleValue();
         for (int i = 0; i < 30; i++) x = Math.sin(x) * Math.cos(x) + x;
         return BigDecimal.valueOf(x * 0.07).abs();
