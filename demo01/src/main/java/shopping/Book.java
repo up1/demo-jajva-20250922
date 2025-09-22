@@ -1,5 +1,7 @@
 package shopping;
 
+import java.util.Objects;
+
 class Demo{
     public static void main(String[] args) {
         Book2 b = new Book2(1, "Book01", 100);
@@ -54,5 +56,17 @@ public class Book {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return id == book.id && price == book.price && Objects.equals(name, book.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, price);
     }
 }

@@ -3,6 +3,7 @@ package shopping;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 // Annotation , Decorator
@@ -20,7 +21,7 @@ class Demo2 {
         BookWithLombok b1 = new BookWithLombok();
         BookWithLombok b2 = new BookWithLombok(1, "Book 01", 100);
 
-        System.out.println(b1);
+        System.out.println(b1.getId());
         System.out.println(b2);
     }
 }
