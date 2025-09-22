@@ -14,12 +14,12 @@ public class BookStore {
         }
         // show all book
         List<Book> books = results.get();
-        for(int i=0; i<books.size(); i++){
-            System.out.println(books.get(i));
+        for (int i = 0; i < books.size(); i++) {
+            System.out.println(books.get(i).toString());
         }
 
-        for(Book b: books){
-            System.out.println(b);
+        for (Book b : books) {
+            System.out.println(b.toString());
         }
 
     }
