@@ -24,6 +24,7 @@ public class Main {
         BaseOrderProcessing p1 = new OrderWithSingleThread();
         long count = p1.process(orders);
 
+        // 3. Time to execute !!
         Duration totalTime = Duration.between(startTime, Instant.now());
         System.out.printf("Process=%d orders in time = %s", count, human(totalTime));
     }
