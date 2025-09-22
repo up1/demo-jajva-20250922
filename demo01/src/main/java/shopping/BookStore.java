@@ -1,39 +1,39 @@
 package shopping;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class BookStore {
 
-    // List of book
-    public List<Book> inquiryAllBook2() {
-        return null;
+    public static void main(String[] args) {
+        BookStore bookStore = new BookStore();
+        Optional<List<Book>> results = bookStore.inquiryAllBook();
+        if (results.isEmpty()) {
+            System.out.println("Book not found");
+        }
+        // show all book
+        List<Book> books = results.get();
+        for(int i=0; i<books.size(); i++){
+            System.out.println(books.get(i));
+        }
+
+        for(Book b: books){
+            System.out.println(b);
+        }
+
     }
 
     // NPE preventer
+    // <> => Generic
     public Optional<List<Book>> inquiryAllBook() {
-        // TODO :: Implement detail
-        return Optional.empty();
-    }
+        // Dummy books
+        List<Book> books = new ArrayList();
+        books.add(new Book());
+        books.add(new Book());
+        books.add(new Book());
 
-    public static void main(String[] args) {
-        BookStore bookStore = new BookStore();
-        Optional<List<Book>> a = bookStore.inquiryAllBook();
-        // Style 1
-        if(a.isPresent()) {
-            // Book
-        } else {
-            // no book
-        }
-
-        // Style 2 :: Fail fast / Fail early
-        if(a.isEmpty()) {
-            // no book
-            throw new RuntimeException("No book");
-        }
-
-        // Book
-
+        return Optional.of(books);
     }
 
 }
