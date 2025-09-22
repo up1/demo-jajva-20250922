@@ -6,7 +6,7 @@ class Demo{
         System.out.println(b.id());
         System.out.println(b.name());
         System.out.println(b.price());
-        System.out.println(b.toString());
+        System.out.println(b);
     }
 }
 
