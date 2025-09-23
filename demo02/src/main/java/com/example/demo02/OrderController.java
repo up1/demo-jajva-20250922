@@ -1,7 +1,6 @@
 package com.example.demo02;
 
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +10,7 @@ public class OrderController {
 
     @PostMapping("/order")
     public ResponseEntity<OrderResponse> createNewOrder(
-           @Valid @RequestBody NewOrderRequest request){
+            @Valid @RequestBody NewOrderRequest request){
         System.out.println(request);
         OrderResponse newOrder = new OrderResponse(111, 111, 1111.0);
         ResponseEntity<OrderResponse> response = new ResponseEntity<>(newOrder, HttpStatusCode.valueOf(201));
