@@ -12,9 +12,8 @@ public class OrderService {
     public OrderResponse createNewOrder(NewOrderRequest request){
         // Insert to database
         Order order = new Order();
-        order.setOrderId(111);
-        order.setCustomerId(111);
-        order.setTotalPrice(1111.0);
+        order.setCustomerId(request.customer_id());
+        order.setTotalPrice(request.total_price());
         order = orderRepository.save(order);
         // Return result to controller
         OrderResponse newOrder = new OrderResponse(

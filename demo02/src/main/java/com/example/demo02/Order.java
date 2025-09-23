@@ -1,12 +1,13 @@
 package com.example.demo02;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+// import javax.persistence
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "orders")
 public class Order {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
     @Column(name = "total_price")
     private double totalPrice;
