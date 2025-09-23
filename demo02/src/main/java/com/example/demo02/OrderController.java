@@ -1,6 +1,7 @@
 package com.example.demo02;
 
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,11 +9,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class OrderController {
 
+    @Autowired
+    private OrderService orderService;
+
     @PostMapping("/order")
     public ResponseEntity<OrderResponse> createNewOrder(
             @Valid @RequestBody NewOrderRequest request){
-        System.out.println(request);
-        OrderResponse newOrder = new OrderResponse(111, 111, 1111.0);
+        OrderResponse newOrder = orderService.createNewOrder(request);
         ResponseEntity<OrderResponse> response = new ResponseEntity<>(newOrder, HttpStatusCode.valueOf(201));
         return response;
     }
