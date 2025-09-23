@@ -17,6 +17,14 @@ class OrderControllerTest {
     TestRestTemplate restTemplate;
 
     @Test
+    @DisplayName("Order not found in system")
+    void getOrderById(){
+        ResponseEntity<ErrorMessageResponse> response = restTemplate.getForEntity("/orders/2", ErrorMessageResponse.class);
+        assertEquals(404, response.getStatusCode().value());
+    }
+
+
+    @Test
     @DisplayName("Success with create a new order")
     void createNewOrder() {
         NewOrderRequest request = new NewOrderRequest(1, 1);
