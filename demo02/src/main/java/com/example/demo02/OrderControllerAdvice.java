@@ -1,6 +1,8 @@
 package com.example.demo02;
 
 
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
@@ -9,13 +11,19 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 public class OrderControllerAdvice {
 
     @ExceptionHandler(exception = MethodArgumentTypeMismatchException.class)
-    public ErrorMessageResponse badRequest(Exception ex){
-        return new ErrorMessageResponse("Bad request with "+ ex.getMessage());
+    public ResponseEntity<ErrorMessageResponse> badRequest(Exception ex){
+        ErrorMessageResponse myException = new ErrorMessageResponse("Bad request with "+ ex.getMessage());
+        ResponseEntity<ErrorMessageResponse> response =
+                new ResponseEntity<>(myException, HttpStatusCode.valueOf(400));
+        return response;
     }
 
     @ExceptionHandler(exception = OrderNotFoundException.class)
-    public ErrorMessageResponse orderNotFound(Exception ex){
-        return new ErrorMessageResponse(ex.getMessage());
+    public ResponseEntity<ErrorMessageResponse> orderNotFound(Exception ex){
+        ErrorMessageResponse myException = new ErrorMessageResponse(ex.getMessage());
+        ResponseEntity<ErrorMessageResponse> response =
+                new ResponseEntity<>(myException, HttpStatusCode.valueOf(404));
+        return response;
     }
 
 }
