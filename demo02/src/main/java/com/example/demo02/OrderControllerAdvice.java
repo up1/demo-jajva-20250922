@@ -9,8 +9,13 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 public class OrderControllerAdvice {
 
     @ExceptionHandler(exception = MethodArgumentTypeMismatchException.class)
-    public ErrorMessageResponse badRequest(MethodArgumentTypeMismatchException ex){
+    public ErrorMessageResponse badRequest(Exception ex){
         return new ErrorMessageResponse("Bad request with "+ ex.getMessage());
+    }
+
+    @ExceptionHandler(exception = OrderNotFoundException.class)
+    public ErrorMessageResponse orderNotFound(Exception ex){
+        return new ErrorMessageResponse(ex.getMessage());
     }
 
 }
