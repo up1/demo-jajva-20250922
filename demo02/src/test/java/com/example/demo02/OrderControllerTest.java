@@ -24,4 +24,12 @@ class OrderControllerTest {
         assertEquals(201, result.getStatusCode().value());
         assertEquals(111, result.getBody().id());
     }
+
+    @Test
+    @DisplayName("Failure with create a new order")
+    void createNewOrder2() {
+        NewOrderRequest request = new NewOrderRequest(0, 1);
+        ResponseEntity<OrderResponse> result = restTemplate.postForEntity("/order", request, OrderResponse.class);
+        assertEquals(400, result.getStatusCode().value());
+    }
 }
